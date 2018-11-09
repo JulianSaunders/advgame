@@ -1,0 +1,19 @@
+compile
+run
+run a b c d e
+run a
+run
+exit
+run
+compile
+clean
+compile
+clean
+compile
+exit
+compile
+clean
+compile
+clean
+compile
+run

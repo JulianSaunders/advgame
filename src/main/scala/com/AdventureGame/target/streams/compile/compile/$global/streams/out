@@ -1,0 +1,13 @@
+[0m[[0m[33mwarn[0m] [0m[0m/Users/juliansaunders/Applications/hmrc-development-environment/githubcom/advgame/src/main/scala/com/AdventureGame/LocationService.scala:5:27: imported `PlayerData' is permanently hidden by definition of object PlayerData in package AdventureGame[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport com.AdventureGame.{PlayerData, StepChoices, StepData}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                          ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/juliansaunders/Applications/hmrc-development-environment/githubcom/advgame/src/main/scala/com/AdventureGame/LocationService.scala:5:39: imported `StepChoices' is permanently hidden by definition of object StepChoices in package AdventureGame[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport com.AdventureGame.{PlayerData, StepChoices, StepData}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/juliansaunders/Applications/hmrc-development-environment/githubcom/advgame/src/main/scala/com/AdventureGame/LocationService.scala:5:52: imported `StepData' is permanently hidden by definition of object StepData in package AdventureGame[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport com.AdventureGame.{PlayerData, StepChoices, StepData}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/juliansaunders/Applications/hmrc-development-environment/githubcom/advgame/src/main/scala/com/AdventureGame/PlayerService.scala:6:26: imported `PlayerData' is permanently hidden by definition of object PlayerData in package AdventureGame[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport com.AdventureGame.PlayerData[0m
+[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mfour warnings found[0m
