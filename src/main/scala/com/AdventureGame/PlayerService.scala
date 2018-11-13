@@ -14,13 +14,15 @@ object PlayerService {
     }
 
     println("\n***************************************************************")
+    println("***************************************************************")
+    println("***************************************************************")
     fprint("Welcome to the game - " + gameName)
   }
 
   def askPlayerName(): PlayerData = {
     fprint("What is your name?\n*")
     val playerName = readLine("*   You >>> ")
-    fprint("Hello " + playerName + ", we hope you have a good time playing \n*\n*")
+    fprint("Hello " + playerName + ", we hope you have a good time playing \n*   type 'exit' to quit\n*")
     new PlayerData(playerName, 0)
   }
 
@@ -30,5 +32,11 @@ object PlayerService {
 
   def subtractOneStep(playerData: PlayerData): PlayerData = {
     new PlayerData(playerData.name, playerData.steps - 1)
+  }
+
+  def goodbye(playerData: PlayerData) = {
+    println("*\n***************************************************************")
+    fprint("Goodbye " + playerData.name + ", thank you for playing")
+    println("*\n***************************************************************")
   }
 }

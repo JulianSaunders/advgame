@@ -52,6 +52,8 @@ object AllGameData {
   allChoice.addBinding("Buckingham-Palace-gate", StepChoices("5", "Walk down Spur Road", "Spur-Road"))
   allLocationObject.addBinding("Buckingham-Palace-gate", OtherObject("1", "Crisp packet"))
   allLocationObject.addBinding("Buckingham-Palace-gate", Weapon("1", "Tree branch"))
+  allLocationObject.addBinding("Buckingham-Palace-gate", Animal("1", "Horse"))
+  allLocationObject.addBinding("Buckingham-Palace-gate", Person("1", "Police person on horseback"))
 
 
   allLocation += ("Constitution-Hill" -> StepData("Constitution-Hill", false, false, "You are walking up Constitution Hill"))
@@ -60,14 +62,14 @@ object AllGameData {
 
   allLocation += ("Hyde-Park-Corner" -> StepData("Hyde-Park-Corner", false, false, "You are standing at Hyde Park Corner"))
   allChoice.addBinding("Hyde-Park-Corner", StepChoices("1", "Walk down Constitution Hill", "Constitution-Hill"))
-  allChoice.addBinding("Hyde-Park-Corner", StepChoices("2", "Enter Hyde Park", "Hyde-Park-Bottom-East"))
+  allChoice.addBinding("Hyde-Park-Corner", StepChoices("2", "Enter Hyde Park", "Hyde-Park-South-East"))
 
-  allLocation += ("Hyde-Park-Bottom-East" -> StepData("Hyde-Park-Bottom-East", false, false, "You are standing in Hyde Park"))
-  allChoice.addBinding("Hyde-Park-Bottom-East", StepChoices("1", "Walk through the park towards Marble Arch", "Marble-Arch"))
-  allChoice.addBinding("Hyde-Park-Bottom-East", StepChoices("2", "Go to Hyde Park Corner", "Hyde-Park-Corner"))
+  allLocation += ("Hyde-Park-South-East" -> StepData("Hyde-Park-South-East", false, false, "You are standing in Hyde Park"))
+  allChoice.addBinding("Hyde-Park-South-East", StepChoices("1", "Walk through the park towards Marble Arch", "Marble-Arch"))
+  allChoice.addBinding("Hyde-Park-South-East", StepChoices("2", "Go to Hyde Park Corner", "Hyde-Park-Corner"))
 
   allLocation += ("Marble-Arch" -> StepData("Marble-Arch", false, false, "You are standing at Marble Arch"))
-  allChoice.addBinding("Marble-Arch", StepChoices("1", "Walk through the park towards Hyde Park Corner", "Hyde-Park-Bottom-East"))
+  allChoice.addBinding("Marble-Arch", StepChoices("1", "Walk through the park towards Hyde Park Corner", "Hyde-Park-South-East"))
   allChoice.addBinding("Marble-Arch", StepChoices("2", "Walk along Oxford Street", "Oxford-Street-West"))
   allLocationObject.addBinding("Marble-Arch", Animal("1", "Horse"))
   allLocationObject.addBinding("Marble-Arch", Person("2", "Police person on horseback"))

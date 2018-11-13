@@ -29,10 +29,10 @@ object LocationService {
       printStepCount(playerData)
       printChoices(choices)
       printObjects(objects)
-      val playerChoice = getUserChoiceInput()
+      val playerChoice = getUserChoiceInput
 
       playerChoice match {
-        case `exitGameCommand` => fprint("Goodbye " + playerData.name + ", thank you for playing")
+        case `exitGameCommand` => goodbye(playerData)
         case _ => {
           choices match {
             case None =>
@@ -53,7 +53,7 @@ object LocationService {
   }
 
   def printLocationDescription(location: StepData): Unit = {
-    fprint("")
+    println("***************************************************************")
     fprint(location.description)
   }
 
@@ -63,54 +63,39 @@ object LocationService {
 
   def printChoices(choices: Option[Set[StepChoices]]): Unit = {
     fprint("You have the following options :")
-    choices match {
-      case None =>
-      case Some(c) => c.map(c => fprint(c.optionVal + " : " + c.description, choices = true))
-    }
+    choices.foreach(c => c.foreach(choice => fprint(choice.optionVal + " : " + choice.description, choices = true)))
   }
 
   def printObjects(objs: Option[Set[gameObjectT]]): Unit = {
-    objs match {
-      case None =>
-      case Some(objects) => {
-        if (objects.exists(o => o match {
-          case _: Weapon | _: OtherObject => true
-          case _ => false
-        })) {
-          fprint("There are the following objects that can be picked up :")
-          objects.map {
-            case o: Weapon => fprint("W" + o.optionVal + " : " + o.description, choices = true)
-            case o: OtherObject => fprint("O" + o.optionVal + " : " + o.description, choices = true)
-            case o@(_: Person | _: Animal) => //I left this in here as an example of how to handle 2 types with 1 command, instead of case _ =>
-          }
+    objs.foreach { objects =>
+      if (objects.collect { case o@(_: Weapon | _: OtherObject) => o }.nonEmpty) {
+        fprint("There are the following objects that can be picked up :")
+        objects.foreach {
+          case o: Weapon => fprint("W" + o.optionVal + " : " + o.description, choices = true)
+          case o: OtherObject => fprint("O" + o.optionVal + " : " + o.description, choices = true)
+          case o@(_: Person | _: Animal) => //I left this in here as an example of how to handle 2 types with 1 command, instead of case _ =>
         }
+      }
 
-        if (objects.exists(o => o match {
-          case _: Person => true
-          case _ => false
-        })) {
-          fprint("There are the following persons :")
-          objects.map {
-            case o: Person => fprint("P" + o.optionVal + " : " + o.description, choices = true)
-            case _ =>
-          }
+      if (objects.collect { case o: Person => o }.nonEmpty) {
+        fprint("There are the following persons :")
+        objects.foreach {
+          case o: Person => fprint("P" + o.optionVal + " : " + o.description, choices = true)
+          case _ =>
         }
+      }
 
-        if (objects.exists(o => o match {
-          case _: Person => true
-          case _ => false
-        })) {
-          fprint("There are the following animals :")
-          objects.map {
-            case o: Animal => fprint("A" + o.optionVal + " : " + o.description, choices = true)
-            case _ =>
-          }
+      if (objects.collect { case o: Animal => o }.nonEmpty) {
+        fprint("There are the following animals :")
+        objects.foreach {
+          case o: Animal => fprint("A" + o.optionVal + " : " + o.description, choices = true)
+          case _ =>
         }
       }
     }
   }
 
-  def getUserChoiceInput() :String ={
+  def getUserChoiceInput: String = {
     fprint("")
     readLine("*   You >>> ")
   }
