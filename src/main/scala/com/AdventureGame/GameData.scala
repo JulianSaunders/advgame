@@ -38,7 +38,9 @@ object AllGameData {
 
   val gameName = "London Adventure"
   val exitGameCommand = "exit"
-  var allLocation = scala.collection.immutable.Map[String, StepData]()
+//  var allLocation = scala.collection.immutable.Map[String, StepData]()
+  val allLocation = scala.collection.mutable.Map[String, StepData]()
+
   // https://alvinalexander.com/java/jwarehouse/scala-2.11/library/scala/collection/mutable/MultiMap.scala.shtml
   val allChoice = new HashMap[String, Set[StepChoices]] with OrderedMultimap[String, StepChoices]
   val allLocationObject = new HashMap[String, Set[gameObjectT]] with OrderedMultimap[String, gameObjectT]
